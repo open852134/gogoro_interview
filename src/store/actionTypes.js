@@ -1,0 +1,7 @@
+const actionTypes = Object.freeze({
+  TOGGLE_NAVIGATION_COLLAPSE: "TOGGLE_NAVIGATION_COLLAPSE",
+  SET_NAVIGATION_LINK: "SET_NAVIGATION_LINK",
+  SWITCH_USER: "SWITCH_USER"
+});
+
+export default actionTypes;

@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { NavigationDrawer } from "./components";
+import routers from "./routers";
+import { useStore } from "./store/context";
+import styled from "styled-components";
 
-function App() {
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+const Content = styled.div`
+  padding: 14px;
+`;
+
+function App(props) {
+  const {
+    state: { ui, user },
+    actions: { toggleNavigation, setPath, switchUser }
+  } = useStore();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <NavigationDrawer
+        routers={routers}
+        pagePath={ui.pagePath}
+        permission={user.permission}
+        isCollapseed={ui.navigationCollapsed}
+        onCloseClick={toggleNavigation}
+        onOpenClick={toggleNavigation}
+        onItemClick={(pagePath) => {
+          setPath(pagePath);
+        }}
+      />
+
+      <Content>
+        <p>User Name：{user.name}</p>
+        <p>User permission leave：{user.permission}</p>
+        <button onClick={switchUser}>Switch User</button>
+      </Content>
+    </Wrapper>
   );
 }
 

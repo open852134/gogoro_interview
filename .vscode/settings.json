@@ -1,0 +1,24 @@
+{
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "files.exclude": {
+    "node_modules/": true
+  },
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "javascript.validate.enable": false,
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "colorize.include": ["**/*.js"],
+  "eslint.format.enable": true,
+  "prettier.printWidth": 90,
+  "prettier.semi": true,
+  "prettier.trailingComma": "none",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
